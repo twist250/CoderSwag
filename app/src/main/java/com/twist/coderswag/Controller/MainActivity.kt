@@ -15,7 +15,9 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        adapter = CategoryRecyclerAdapter(this, DataService.categories)
+        adapter = CategoryRecyclerAdapter(this, DataService.categories) { category ->
+            println(category.title)
+        }
         categoryListView.adapter = adapter
 
         val layoutManager = LinearLayoutManager(this)
